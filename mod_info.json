@@ -1,0 +1,17 @@
+{
+    "id": "starsector-scala-mod-template",
+    "name": "Starsector Scala Mod Template",
+    "author": "yourname",
+    "totalConversion": "false",
+    "utility": "true",
+    "version": "0.1.0",
+    "dependencies": [],
+    "description": "Your mod description",
+    "gameVersion": "0.98a-RC7",
+    "replace": [],
+    "jars": [
+        "lib/mod.jar",
+        "lib/scala3-library_3-3.6.4.jar"
+    ],
+    "modPlugin": "com.example.StarsectorScalaModTemplate"
+}
