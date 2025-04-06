@@ -4,7 +4,7 @@ val scala3Version = "3.6.4"
 
 lazy val packageMod = taskKey[File]("Package as a starsector mod(zip).")
 
-Compile / compile := (Compile / compile).dependsOn(fetchStarsectorJars).value
+// Compile / compile := (Compile / compile).dependsOn(fetchStarsectorJars).value
 
 lazy val root = project
   .in(file("."))
