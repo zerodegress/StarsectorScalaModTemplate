@@ -12,6 +12,7 @@ lazy val root = project
     name := "StarSectorScalaModTemplate",
     version := "0.1.0",
     scalaVersion := scala3Version,
+    scalacOptions += "-release:17",
     libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test,
     libraryDependencies += "log4j" % "log4j" % "1.2.9",
     libraryDependencies += "com.thoughtworks.xstream" % "xstream" % "1.4.10",
