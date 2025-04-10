@@ -2,9 +2,7 @@ import scala.language.implicitConversions
 
 val scala3Version = "3.6.4"
 
-lazy val packageMod = taskKey[File]("Package as a starsector mod(zip).")
-
-// Compile / compile := (Compile / compile).dependsOn(fetchStarsectorJars).value
+lazy val packageModZip = taskKey[File]("Package as a starsector mod(zip).")
 
 lazy val root = project
   .in(file("."))
@@ -16,7 +14,7 @@ lazy val root = project
     libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test,
     libraryDependencies += "log4j" % "log4j" % "1.2.9",
     libraryDependencies += "com.thoughtworks.xstream" % "xstream" % "1.4.10",
-    packageMod := {
+    packageModZip := {
       val jarFile = (Compile / packageBin).value
       val targetDir = (target).value / "dist"
       val zipFile = targetDir / s"${name.value}-${version.value}.zip"
@@ -33,7 +31,7 @@ lazy val root = project
           .filter(f => f.getName.contains("scala3"))
           .map(f => f -> s"lib/${f.getName}") :+ (modInfoJson, "mod_info.json")
 
-      IO.zip(mappings, zipFile)
+      IO.zip(mappings, zipFile, None)
 
       zipFile
     }
