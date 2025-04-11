@@ -19,6 +19,9 @@ lazy val root = project
     libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test,
     libraryDependencies += "log4j" % "log4j" % "1.2.9" % Provided,
     libraryDependencies += "com.thoughtworks.xstream" % "xstream" % "1.4.10" % Provided,
+    Compile / unmanagedJars += file(
+      sys.env("STARSECTOR_GAME_PATH")
+    ) / "starfarer.api.jar",
     generateModJarsMapping := {
       Seq((Compile / packageBin).value -> "lib/starsector-scalapower.jar")
     },
